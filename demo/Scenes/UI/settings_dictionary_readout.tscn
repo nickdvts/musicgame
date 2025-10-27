@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpbisl4462ief"]
+
+[ext_resource type="Theme" uid="uid://dujaksx6g75hx" path="res://Themes/darkTheme.tres" id="1_rtkma"]
+[ext_resource type="Script" path="res://Scenes/UI/settings_dictionary_readout.gd" id="2_jvu78"]
+[ext_resource type="Texture2D" uid="uid://bdttr8vumntgh" path="res://UI/Trash Button.png" id="3_m7pgv"]
+[ext_resource type="LabelSettings" uid="uid://mevdjtlers02" path="res://Themes/normalTextSettings.tres" id="3_ypnhg"]
+
+[node name="Settings Shallow Dictionary" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_rtkma")
+script = ExtResource("2_jvu78")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 2
+
+[node name="Readout" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_rtkma")
+label_settings = ExtResource("3_ypnhg")
+
+[node name="Delete Button" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("3_m7pgv")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[connection signal="pressed" from="HBoxContainer/Delete Button" to="." method="_on_delete_button_pressed"]

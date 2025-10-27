@@ -1,0 +1,129 @@
+[gd_scene load_steps=11 format=3 uid="uid://57mggncvi87y"]
+
+[ext_resource type="Theme" uid="uid://dujaksx6g75hx" path="res://Themes/darkTheme.tres" id="1_75uud"]
+[ext_resource type="Texture2D" uid="uid://bdttr8vumntgh" path="res://UI/Trash Button.png" id="2_ki7aj"]
+[ext_resource type="Script" path="res://Scenes/UI/preset_readout.gd" id="2_s2b74"]
+[ext_resource type="LabelSettings" uid="uid://mevdjtlers02" path="res://Themes/normalTextSettings.tres" id="3_jryf0"]
+[ext_resource type="Texture2D" uid="uid://bqdrqypau7qju" path="res://UI/Edit Button.png" id="3_nv1jk"]
+[ext_resource type="Texture2D" uid="uid://bwohc7swgs85e" path="res://UI/Radio Button Off.png" id="3_ws7y6"]
+[ext_resource type="Texture2D" uid="uid://58ydt62ebcvv" path="res://UI/Menu Button.png" id="5_pb36y"]
+[ext_resource type="Texture2D" uid="uid://ot4laq6o5y7k" path="res://UI/Up Arrow.png" id="6_3i6ud"]
+[ext_resource type="Texture2D" uid="uid://o3uftd4w0l7o" path="res://UI/Settings Icon.png" id="6_mf200"]
+[ext_resource type="Texture2D" uid="uid://537g5r2el6dt" path="res://UI/Down Arrow.png" id="7_oujrc"]
+
+[node name="Preset Readout" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_75uud")
+script = ExtResource("2_s2b74")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 2
+
+[node name="Select Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_75uud")
+icon = ExtResource("3_ws7y6")
+flat = true
+expand_icon = true
+
+[node name="Readout" type="Label" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_75uud")
+label_settings = ExtResource("3_jryf0")
+text_overrun_behavior = 3
+
+[node name="Menu Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_75uud")
+icon = ExtResource("5_pb36y")
+flat = true
+expand_icon = true
+
+[node name="Settings Container" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Move Up Button" type="Button" parent="VBoxContainer/Settings Container"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_75uud")
+icon = ExtResource("6_3i6ud")
+flat = true
+expand_icon = true
+
+[node name="Move Down Button" type="Button" parent="VBoxContainer/Settings Container"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_75uud")
+icon = ExtResource("7_oujrc")
+flat = true
+expand_icon = true
+
+[node name="Spacer" type="Container" parent="VBoxContainer/Settings Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Delete Button" type="Button" parent="VBoxContainer/Settings Container"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_75uud")
+icon = ExtResource("2_ki7aj")
+flat = true
+expand_icon = true
+
+[node name="Spacer2" type="Container" parent="VBoxContainer/Settings Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Rename Button" type="Button" parent="VBoxContainer/Settings Container"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_75uud")
+icon = ExtResource("3_nv1jk")
+flat = true
+expand_icon = true
+
+[node name="Spacer3" type="Container" parent="VBoxContainer/Settings Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Edit Button" type="Button" parent="VBoxContainer/Settings Container"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_75uud")
+icon = ExtResource("6_mf200")
+flat = true
+expand_icon = true
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Select Button" to="." method="_on_select_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Menu Button" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings Container/Move Up Button" to="." method="_on_move_up_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings Container/Move Down Button" to="." method="_on_move_down_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings Container/Delete Button" to="." method="_on_delete_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings Container/Rename Button" to="." method="_on_rename_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings Container/Edit Button" to="." method="_on_edit_button_pressed"]

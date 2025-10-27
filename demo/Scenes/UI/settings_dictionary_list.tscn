@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=3 uid="uid://2ru2aslgxirx"]
+
+[ext_resource type="Theme" uid="uid://dujaksx6g75hx" path="res://Themes/darkTheme.tres" id="1_0vub1"]
+[ext_resource type="Script" path="res://Scenes/UI/settings_dictionary_list.gd" id="2_t1w8s"]
+[ext_resource type="Texture2D" uid="uid://dgx53en586c1s" path="res://UI/Add Button.png" id="3_1u327"]
+[ext_resource type="StyleBox" uid="uid://bwu6kop5nwjvg" path="res://Themes/hardPanel.tres" id="4_7c7x6"]
+[ext_resource type="Texture2D" uid="uid://bls4kqvc8a3ca" path="res://UI/Close Button.png" id="4_knab2"]
+
+[node name="Settings Dictionary List" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0vub1")
+script = ExtResource("2_t1w8s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_0vub1")
+
+[node name="New Button" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("1_0vub1")
+icon = ExtResource("3_1u327")
+flat = true
+icon_alignment = 2
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="DictionaryContainer" type="GridContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_0vub1")
+columns = 4
+
+[node name="Add Popup" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_0vub1")
+theme_override_styles/panel = ExtResource("4_7c7x6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Add Popup"]
+layout_mode = 2
+theme = ExtResource("1_0vub1")
+
+[node name="AddContainer" type="VBoxContainer" parent="Add Popup/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme = ExtResource("1_0vub1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Add Popup/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_0vub1")
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Add Popup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add Button" type="Button" parent="Add Popup/VBoxContainer/HBoxContainer/CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("1_0vub1")
+icon = ExtResource("3_1u327")
+flat = true
+icon_alignment = 2
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="CenterContainer2" type="CenterContainer" parent="Add Popup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Cancel Button" type="Button" parent="Add Popup/VBoxContainer/HBoxContainer/CenterContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("1_0vub1")
+icon = ExtResource("4_knab2")
+flat = true
+icon_alignment = 2
+vertical_icon_alignment = 0
+expand_icon = true
+
+[connection signal="pressed" from="VBoxContainer/New Button" to="." method="_on_new_button_pressed"]
+[connection signal="pressed" from="Add Popup/VBoxContainer/HBoxContainer/CenterContainer/Add Button" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="Add Popup/VBoxContainer/HBoxContainer/CenterContainer2/Cancel Button" to="." method="_on_cancel_button_pressed"]

@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://drejvijegrrnc"]
+
+[ext_resource type="Theme" uid="uid://dujaksx6g75hx" path="res://Themes/darkTheme.tres" id="1_8vhkb"]
+[ext_resource type="Script" path="res://Scenes/UI/settings_check.gd" id="2_fkui5"]
+[ext_resource type="LabelSettings" uid="uid://mevdjtlers02" path="res://Themes/normalTextSettings.tres" id="2_lwf67"]
+[ext_resource type="Texture2D" uid="uid://blfe3pqhwrpbh" path="res://UI/Switch Button On.png" id="4_b23xq"]
+
+[node name="Settings H Check" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8vhkb")
+script = ExtResource("2_fkui5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_8vhkb")
+alignment = 1
+
+[node name="Read Out" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_8vhkb")
+text = "Set With Code
+"
+label_settings = ExtResource("2_lwf67")
+
+[node name="CheckButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_8vhkb")
+toggle_mode = true
+icon = ExtResource("4_b23xq")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="toggled" from="VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]

@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://cshu2goi2tiqs"]
+
+[ext_resource type="Script" path="res://Scenes/audio_calibrator.gd" id="1_e57g5"]
+[ext_resource type="PackedScene" uid="uid://csyqx5xcwfmc4" path="res://Scenes/UI/settings_h_slider.tscn" id="2_sua6u"]
+[ext_resource type="Theme" uid="uid://dujaksx6g75hx" path="res://Themes/darkTheme.tres" id="3_08fjo"]
+[ext_resource type="LabelSettings" uid="uid://ci281eviovoli" path="res://Themes/header1LabelSettings.tres" id="3_g5q2l"]
+[ext_resource type="PackedScene" uid="uid://2qqhkdnvfyx4" path="res://Scenes/UI/metronome.tscn" id="4_al2h5"]
+[ext_resource type="Texture2D" uid="uid://b1yo5wo3k2cu7" path="res://UI/Save Button.png" id="6_8ukx8"]
+[ext_resource type="Texture2D" uid="uid://bls4kqvc8a3ca" path="res://UI/Close Button.png" id="7_rd55n"]
+
+[node name="audio_calibrator" type="CanvasLayer"]
+script = ExtResource("1_e57g5")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.3
+offset_left = -794.5
+offset_right = 794.5
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_08fjo")
+text = "Adjust the slider until audio and visuals are in sync."
+label_settings = ExtResource("3_g5q2l")
+vertical_alignment = 1
+
+[node name="Metronome" parent="." instance=ExtResource("4_al2h5")]
+unique_name_in_owner = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AudioSlider" parent="VBoxContainer/CenterContainer2" instance=ExtResource("2_sua6u")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1440, 0)
+layout_mode = 2
+
+[node name="Spacer" type="Container" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SaveButton" type="Button" parent="VBoxContainer/HBoxContainer/CenterContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_08fjo")
+theme_override_font_sizes/font_size = 32
+icon = ExtResource("6_8ukx8")
+flat = true
+expand_icon = true
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CancelButton" type="Button" parent="VBoxContainer/HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_08fjo")
+theme_override_font_sizes/font_size = 32
+icon = ExtResource("7_rd55n")
+flat = true
+expand_icon = true
+
+[node name="Spacer2" type="Container" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CenterContainer2/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CenterContainer/CancelButton" to="." method="_on_cancel_button_pressed"]

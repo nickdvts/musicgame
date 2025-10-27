@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://by6to3om0fqo5"]
+
+[ext_resource type="Script" uid="uid://d3vir7i61jkct" path="res://Scenes/session_screen.gd" id="1_5vyik"]
+[ext_resource type="PackedScene" uid="uid://uemcfgv5wsll" path="res://Scenes/UI/session_ui.tscn" id="2_agcti"]
+[ext_resource type="PackedScene" uid="uid://2qqhkdnvfyx4" path="res://Scenes/UI/metronome.tscn" id="3_7ug70"]
+[ext_resource type="PackedScene" uid="uid://cb4sduftupeil" path="res://Scenes/UI/tutorial_screen.tscn" id="4_blqob"]
+
+[node name="Session Screen" type="Node2D"]
+texture_filter = 6
+scale = Vector2(0.997787, 0.998095)
+script = ExtResource("1_5vyik")
+
+[node name="NotationContainer" type="Node2D" parent="."]
+texture_filter = 2
+
+[node name="Session UI" parent="." instance=ExtResource("2_agcti")]
+unique_name_in_owner = true
+
+[node name="Metronome" parent="Session UI" instance=ExtResource("3_7ug70")]
+unique_name_in_owner = true
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+yAnchorDimension = 0.01
+yAnchorPosition = 0.05
+
+[node name="Tutorial Screen" parent="." instance=ExtResource("4_blqob")]
+unique_name_in_owner = true
+
+[connection signal="play_pressed" from="Session UI" to="." method="_on_session_ui_play_pressed"]
+[connection signal="restart_pressed" from="Session UI" to="." method="_on_session_ui_restart_pressed"]
+[connection signal="scroll_down_pressed" from="Session UI" to="." method="_on_session_ui_scroll_down_pressed"]
+[connection signal="scroll_up_pressed" from="Session UI" to="." method="_on_session_ui_scroll_up_pressed"]
+[connection signal="settings_pressed" from="Session UI" to="." method="_on_session_ui_settings_pressed"]
+[connection signal="stop_pressed" from="Session UI" to="." method="_on_session_ui_stop_pressed"]

@@ -1,0 +1,651 @@
+[gd_scene load_steps=13 format=3 uid="uid://co3fj0kynbekf"]
+
+[ext_resource type="Script" path="res://Scenes/settings_screen.gd" id="1_i1pe8"]
+[ext_resource type="Theme" uid="uid://dujaksx6g75hx" path="res://Themes/darkTheme.tres" id="2_wpxy6"]
+[ext_resource type="StyleBox" uid="uid://2sf2j87bow5q" path="res://Themes/lightMenuBox.tres" id="3_2vupd"]
+[ext_resource type="StyleBox" uid="uid://cawgc0pahf152" path="res://Themes/darkMenuBox.tres" id="4_gxts7"]
+[ext_resource type="LabelSettings" uid="uid://5g3p21x8bipt" path="res://Themes/titleLabel.tres" id="5_e7j2d"]
+[ext_resource type="LabelSettings" uid="uid://ci281eviovoli" path="res://Themes/header1LabelSettings.tres" id="6_7pfau"]
+[ext_resource type="PackedScene" uid="uid://csyqx5xcwfmc4" path="res://Scenes/UI/settings_h_slider.tscn" id="7_yadwb"]
+[ext_resource type="PackedScene" uid="uid://dpbklamiahqkx" path="res://Scenes/UI/preset_manager.tscn" id="8_fgxf3"]
+[ext_resource type="PackedScene" uid="uid://bf8nxtuew8cky" path="res://Scenes/UI/settings_group_h_check.tscn" id="9_06ww6"]
+[ext_resource type="PackedScene" uid="uid://drejvijegrrnc" path="res://Scenes/UI/settings_h_check.tscn" id="10_do7uj"]
+[ext_resource type="Texture2D" uid="uid://8epkbumkjrwt" path="res://UI/Play Button.png" id="11_0sg0d"]
+[ext_resource type="PackedScene" uid="uid://2ru2aslgxirx" path="res://Scenes/UI/settings_dictionary_list.tscn" id="12_ul6oy"]
+
+[node name="Settings Screen" type="CanvasLayer"]
+script = ExtResource("1_i1pe8")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="General Panel" type="Panel" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_wpxy6")
+theme_override_styles/panel = ExtResource("3_2vupd")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/General Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/General Panel/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_wpxy6")
+
+[node name="General Title" type="Label" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+theme_override_styles/normal = ExtResource("4_gxts7")
+text = "General Settings"
+label_settings = ExtResource("5_e7j2d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GenGroup" type="PanelContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_wpxy6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/GenGroup"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="Panel" type="PanelContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/GenGroup/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/GenGroup/VBoxContainer/Panel"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/GenGroup/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_wpxy6")
+text = "Generation Settings
+"
+label_settings = ExtResource("6_7pfau")
+
+[node name="SeqLength" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/GenGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Gen Preset Man" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/GenGroup/VBoxContainer" instance=ExtResource("8_fgxf3")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MetroGroup" type="PanelContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/MetroGroup"]
+layout_mode = 2
+
+[node name="Metro" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/MetroGroup/VBoxContainer" instance=ExtResource("9_06ww6")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MetroShow" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/MetroGroup/VBoxContainer" instance=ExtResource("10_do7uj")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MetroVol" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/MetroGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CountGroup" type="PanelContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/CountGroup"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="Panel" type="PanelContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/CountGroup/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/CountGroup/VBoxContainer/Panel"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/CountGroup/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_wpxy6")
+text = "Count In
+"
+label_settings = ExtResource("6_7pfau")
+
+[node name="AutoCount" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/CountGroup/VBoxContainer" instance=ExtResource("10_do7uj")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AutoBPM" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/CountGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CountMeas" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/CountGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CaliGroup" type="PanelContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("2_wpxy6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/CaliGroup"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="Panel" type="PanelContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/CaliGroup/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/CaliGroup/VBoxContainer/Panel"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/CaliGroup/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_wpxy6")
+text = "Calibration"
+label_settings = ExtResource("6_7pfau")
+
+[node name="InCali" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/CaliGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AuCali" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/CaliGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PreWin" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/CaliGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RelWin" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/CaliGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="GraGroup" type="PanelContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("2_wpxy6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GraGroup"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="Panel" type="PanelContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GraGroup/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GraGroup/VBoxContainer/Panel"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GraGroup/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_wpxy6")
+text = "Graphics"
+label_settings = ExtResource("6_7pfau")
+
+[node name="Highlight" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GraGroup/VBoxContainer" instance=ExtResource("10_do7uj")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="NoteScale" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GraGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FeeScale" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GraGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ButtScale" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GraGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TopMarg" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GraGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SideMarg" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GraGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LineMarg" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GraGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ButtMarg" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GraGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Play Button" type="Button" parent="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/CenterContainer2"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_wpxy6")
+theme_override_font_sizes/font_size = 32
+icon = ExtResource("11_0sg0d")
+flat = true
+expand_icon = true
+
+[node name="Generation Panel" type="Panel" parent="Panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_wpxy6")
+theme_override_styles/panel = ExtResource("3_2vupd")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Generation Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/Generation Panel/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_wpxy6")
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = -12
+
+[node name="Label" type="Label" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Generation Settings"
+label_settings = ExtResource("5_e7j2d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Gen Preset Title" type="Label" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("6_7pfau")
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DivGroup" type="PanelContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/DivGroup"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="Panel" type="PanelContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/DivGroup/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/DivGroup/VBoxContainer/Panel"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/DivGroup/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_wpxy6")
+text = "Value Probabilities"
+label_settings = ExtResource("6_7pfau")
+
+[node name="WholeDiv" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/DivGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HalfDiv" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/DivGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="QuarterDiv" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/DivGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EighthDiv" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/DivGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SixteenthDiv" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/DivGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="NoteGroup" type="PanelContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/NoteGroup"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="Panel" type="PanelContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/NoteGroup/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/NoteGroup/VBoxContainer/Panel"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/NoteGroup/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_wpxy6")
+text = "Note Probabilities
+"
+label_settings = ExtResource("6_7pfau")
+
+[node name="WholeNote" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/NoteGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HalfNote" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/NoteGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="QuarterNote" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/NoteGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EighthNote" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/NoteGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SixteenthNote" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/NoteGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SyncoGroup" type="PanelContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/SyncoGroup"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="Panel" type="PanelContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/SyncoGroup/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/SyncoGroup/VBoxContainer/Panel"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/SyncoGroup/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_wpxy6")
+text = "Syncopation Probabilities
+"
+label_settings = ExtResource("6_7pfau")
+
+[node name="WholeSynco" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/SyncoGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HalfSynco" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/SyncoGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="QuarterSynco" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/SyncoGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EighthSynco" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/SyncoGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SixteenthSynco" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/SyncoGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="TripGroup" type="PanelContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TripGroup"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="Panel" type="PanelContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TripGroup/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TripGroup/VBoxContainer/Panel"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TripGroup/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_wpxy6")
+text = "Triplet Probabilities
+"
+label_settings = ExtResource("6_7pfau")
+
+[node name="WholeTrip" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TripGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HalfTrip" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TripGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="QuarterTrip" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TripGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EighthTrip" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TripGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SixteenthTrip" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TripGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TieGroup" type="PanelContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TieGroup"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="Panel" type="PanelContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TieGroup/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TieGroup/VBoxContainer/Panel"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TieGroup/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_wpxy6")
+text = "Tie Probabilities
+"
+label_settings = ExtResource("6_7pfau")
+
+[node name="MeasTie" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TieGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="WholeTie" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TieGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HalfTie" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TieGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="QuarterTie" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TieGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EighthTie" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TieGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SixteenthTie" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TieGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SigGroup" type="PanelContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/SigGroup"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="Panel" type="PanelContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/SigGroup/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/SigGroup/VBoxContainer/Panel"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/SigGroup/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_wpxy6")
+text = "Time Signatures
+"
+label_settings = ExtResource("6_7pfau")
+
+[node name="SigChange" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/SigGroup/VBoxContainer" instance=ExtResource("7_yadwb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SigManager" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/SigGroup/VBoxContainer" instance=ExtResource("12_ul6oy")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme = ExtResource("2_wpxy6")
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer3/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="GenSaveButton" type="Button" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer3/CenterContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_wpxy6")
+theme_override_font_sizes/font_size = 32
+text = "Save"
+flat = true
+
+[node name="CenterContainer2" type="CenterContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer3/CenterContainer2"]
+layout_mode = 2
+theme = ExtResource("2_wpxy6")
+
+[node name="GenCancelButton" type="Button" parent="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer3/CenterContainer2/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_wpxy6")
+theme_override_font_sizes/font_size = 32
+text = "Cancel"
+flat = true
+
+[connection signal="presetMenuClosed" from="." to="." method="_on_preset_menu_closed"]
+[connection signal="pressed" from="Panel/General Panel/MarginContainer/ScrollContainer/VBoxContainer/CenterContainer2/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer3/CenterContainer/PanelContainer/GenSaveButton" to="." method="_on_gen_save_button_pressed"]
+[connection signal="pressed" from="Panel/Generation Panel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer3/CenterContainer2/PanelContainer/GenCancelButton" to="." method="_on_gen_cancel_button_pressed"]

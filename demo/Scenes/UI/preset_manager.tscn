@@ -1,0 +1,187 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpbklamiahqkx"]
+
+[ext_resource type="Theme" uid="uid://dujaksx6g75hx" path="res://Themes/darkTheme.tres" id="1_6syxu"]
+[ext_resource type="Script" path="res://Scenes/UI/preset_manager.gd" id="2_6tv1p"]
+[ext_resource type="LabelSettings" uid="uid://ci281eviovoli" path="res://Themes/header1LabelSettings.tres" id="3_dlinu"]
+[ext_resource type="Texture2D" uid="uid://bls4kqvc8a3ca" path="res://UI/Close Button.png" id="5_m06s8"]
+[ext_resource type="Texture2D" uid="uid://dgx53en586c1s" path="res://UI/Add Button.png" id="6_eam0l"]
+[ext_resource type="LabelSettings" uid="uid://mevdjtlers02" path="res://Themes/normalTextSettings.tres" id="6_ikdhn"]
+[ext_resource type="Texture2D" uid="uid://ctb0c85r84a0a" path="res://UI/Check Button.png" id="8_ts6wc"]
+
+[node name="Preset Manager" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_6syxu")
+script = ExtResource("2_6tv1p")
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_6syxu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Current Label" type="Label" parent="MainContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_6syxu")
+text = "Current Preset:"
+label_settings = ExtResource("6_ikdhn")
+text_overrun_behavior = 3
+
+[node name="Add Button" type="Button" parent="MainContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_6syxu")
+icon = ExtResource("6_eam0l")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="PresetContainer" type="VBoxContainer" parent="MainContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_6syxu")
+
+[node name="Input Blocker" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Delete Popup" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_6syxu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Delete Popup"]
+layout_mode = 2
+theme = ExtResource("1_6syxu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Delete Popup/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme = ExtResource("1_6syxu")
+
+[node name="Label" type="Label" parent="Delete Popup/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_6syxu")
+text = "Are you sure you want to delete this preset?
+This action cannot be undone."
+label_settings = ExtResource("3_dlinu")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Delete Popup/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_6syxu")
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Delete Popup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Delete Button" type="Button" parent="Delete Popup/VBoxContainer/HBoxContainer/CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme = ExtResource("1_6syxu")
+icon = ExtResource("8_ts6wc")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="CenterContainer2" type="CenterContainer" parent="Delete Popup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Cancel Button" type="Button" parent="Delete Popup/VBoxContainer/HBoxContainer/CenterContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme = ExtResource("1_6syxu")
+icon = ExtResource("5_m06s8")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Rename Popup" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_6syxu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Rename Popup"]
+layout_mode = 2
+theme = ExtResource("1_6syxu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Rename Popup/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme = ExtResource("1_6syxu")
+
+[node name="Label" type="Label" parent="Rename Popup/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_6syxu")
+text = "New Name:"
+label_settings = ExtResource("3_dlinu")
+horizontal_alignment = 1
+
+[node name="RenameEdit" type="LineEdit" parent="Rename Popup/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Preset Name"
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Rename Popup/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_6syxu")
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Rename Popup/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Accept Rename" type="Button" parent="Rename Popup/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme = ExtResource("1_6syxu")
+icon = ExtResource("8_ts6wc")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="CenterContainer2" type="CenterContainer" parent="Rename Popup/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Cancel Rename" type="Button" parent="Rename Popup/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme = ExtResource("1_6syxu")
+icon = ExtResource("5_m06s8")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="MainContainer/HBoxContainer/Add Button" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="Delete Popup/VBoxContainer/HBoxContainer/CenterContainer/Delete Button" to="." method="_on_delete_button_pressed"]
+[connection signal="pressed" from="Delete Popup/VBoxContainer/HBoxContainer/CenterContainer2/Cancel Button" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="Rename Popup/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer/Accept Rename" to="." method="_on_accept_rename_pressed"]
+[connection signal="pressed" from="Rename Popup/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2/Cancel Rename" to="." method="_on_cancel_rename_pressed"]

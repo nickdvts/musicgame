@@ -1,0 +1,180 @@
+[gd_scene load_steps=10 format=3 uid="uid://uemcfgv5wsll"]
+
+[ext_resource type="Script" path="res://Scenes/UI/session_ui.gd" id="1_avbny"]
+[ext_resource type="Texture2D" uid="uid://o3uftd4w0l7o" path="res://UI/Settings Icon.png" id="1_vjwa8"]
+[ext_resource type="Texture2D" uid="uid://cyw5wcuh840el" path="res://UI/Restart Button.png" id="2_2ajxn"]
+[ext_resource type="Texture2D" uid="uid://cxre2ggqvrrho" path="res://UI/countInGo.png" id="2_rt6fb"]
+[ext_resource type="Texture2D" uid="uid://bs6b626oaqunn" path="res://UI/ScrollButtonDown.png" id="2_y0nxl"]
+[ext_resource type="Texture2D" uid="uid://dk2d2dtfi7pcg" path="res://UI/ScrollButtonUp.png" id="3_2jvcg"]
+[ext_resource type="Texture2D" uid="uid://8epkbumkjrwt" path="res://UI/Play Button.png" id="5_6mqx3"]
+[ext_resource type="Texture2D" uid="uid://dy310dffmepy0" path="res://UI/Stop Button.png" id="6_oi4yf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_txxm3"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+corner_detail = 20
+
+[node name="Session UI" type="CanvasLayer"]
+script = ExtResource("1_avbny")
+metadata/_edit_horizontal_guides_ = []
+
+[node name="TapHint" type="AspectRatioContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.7
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="TapHint"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_txxm3")
+
+[node name="CountdownContainer" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CountdownBacking" type="ColorRect" parent="CountdownContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1920, 320)
+layout_mode = 2
+color = Color(0.0901961, 0.172549, 0.309804, 0.25098)
+
+[node name="CountdownNumber" type="TextureRect" parent="CountdownContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1920, 270)
+layout_mode = 2
+texture = ExtResource("2_rt6fb")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Tap Button" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Scroll Button Down" type="Button" parent="."]
+unique_name_in_owner = true
+texture_filter = 2
+custom_minimum_size = Vector2(70, 70)
+anchors_preset = -1
+anchor_left = 0.95
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.85
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+icon = ExtResource("2_y0nxl")
+flat = true
+icon_alignment = 2
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Scroll Button Up" type="Button" parent="."]
+unique_name_in_owner = true
+texture_filter = 2
+custom_minimum_size = Vector2(70, 70)
+anchors_preset = -1
+anchor_left = 0.95
+anchor_top = 0.15
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+icon = ExtResource("3_2jvcg")
+flat = true
+icon_alignment = 2
+vertical_icon_alignment = 2
+expand_icon = true
+
+[node name="Main Button Container" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 70.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Main Button Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 30
+
+[node name="SettingsButton" type="Button" parent="Main Button Container/HBoxContainer2"]
+unique_name_in_owner = true
+texture_filter = 2
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("1_vjwa8")
+flat = true
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main Button Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 64
+alignment = 2
+
+[node name="Play Button" type="Button" parent="Main Button Container/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+icon = ExtResource("5_6mqx3")
+flat = true
+expand_icon = true
+
+[node name="Stop Spacer" type="Container" parent="Main Button Container/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+
+[node name="Stop Button" type="Button" parent="Main Button Container/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+icon = ExtResource("6_oi4yf")
+flat = true
+expand_icon = true
+
+[node name="Restart Button" type="Button" parent="Main Button Container/HBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 2
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("2_2ajxn")
+flat = true
+icon_alignment = 2
+vertical_icon_alignment = 0
+expand_icon = true
+
+[connection signal="button_down" from="Tap Button" to="." method="_on_tap_button_button_down"]
+[connection signal="button_up" from="Tap Button" to="." method="_on_tap_button_button_up"]
+[connection signal="pressed" from="Scroll Button Down" to="." method="_on_scroll_down_button_pressed"]
+[connection signal="pressed" from="Scroll Button Up" to="." method="_on_scroll_up_button_pressed"]
+[connection signal="pressed" from="Main Button Container/HBoxContainer2/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Main Button Container/HBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Main Button Container/HBoxContainer/Stop Button" to="." method="_on_stop_button_pressed"]
+[connection signal="pressed" from="Main Button Container/HBoxContainer/Restart Button" to="." method="_on_restart_button_pressed"]

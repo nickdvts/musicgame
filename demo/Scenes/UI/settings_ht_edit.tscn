@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://crgl14e6wjx26"]
+
+[ext_resource type="Theme" uid="uid://dujaksx6g75hx" path="res://Themes/darkTheme.tres" id="1_detfd"]
+[ext_resource type="Script" path="res://Scenes/UI/SettingsHTEdit.gd" id="2_2kken"]
+[ext_resource type="LabelSettings" uid="uid://mevdjtlers02" path="res://Themes/normalTextSettings.tres" id="3_ml2qt"]
+
+[node name="SettingsHTEdit" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_detfd")
+script = ExtResource("2_2kken")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_detfd")
+
+[node name="Read Out" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_detfd")
+text = "Set With Code
+"
+label_settings = ExtResource("3_ml2qt")
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("1_detfd")
+virtual_keyboard_type = 2
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+
+[connection signal="text_submitted" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]

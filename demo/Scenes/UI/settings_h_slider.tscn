@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://csyqx5xcwfmc4"]
+
+[ext_resource type="Theme" uid="uid://dujaksx6g75hx" path="res://Themes/darkTheme.tres" id="1_oqq8t"]
+[ext_resource type="Script" path="res://Scenes/UI/settings_slider.gd" id="2_0lst7"]
+[ext_resource type="LabelSettings" uid="uid://mevdjtlers02" path="res://Themes/normalTextSettings.tres" id="3_stwm8"]
+[ext_resource type="Texture2D" uid="uid://bsuk8j41r8p1h" path="res://UI/Left Arrow.png" id="4_sxebo"]
+[ext_resource type="Texture2D" uid="uid://drtgrqbk1y8x5" path="res://UI/Right Arrow.png" id="5_6kxru"]
+
+[node name="SettingsHSlider" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_oqq8t")
+script = ExtResource("2_0lst7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Read Out" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_oqq8t")
+text = "Set With Code
+"
+label_settings = ExtResource("3_stwm8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_oqq8t")
+
+[node name="Left Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_oqq8t")
+icon = ExtResource("4_sxebo")
+flat = true
+expand_icon = true
+
+[node name="Slider" type="HSlider" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("1_oqq8t")
+max_value = 10.0
+value = 5.0
+scrollable = false
+
+[node name="Right Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_oqq8t")
+icon = ExtResource("5_6kxru")
+flat = true
+expand_icon = true
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Left Button" to="." method="_on_left_button_pressed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/Slider" to="." method="_on_slider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Right Button" to="." method="_on_right_button_pressed"]

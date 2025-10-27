@@ -1,0 +1,104 @@
+[gd_scene load_steps=7 format=3 uid="uid://cb4sduftupeil"]
+
+[ext_resource type="Script" path="res://Scenes/UI/Tutorial Screen.gd" id="1_jufpp"]
+[ext_resource type="LabelSettings" uid="uid://5g3p21x8bipt" path="res://Themes/titleLabel.tres" id="2_qt08f"]
+[ext_resource type="Texture2D" path="res://BeatMaster.png" id="3_ekbei"]
+[ext_resource type="LabelSettings" uid="uid://mevdjtlers02" path="res://Themes/normalTextSettings.tres" id="4_osali"]
+[ext_resource type="Theme" uid="uid://dujaksx6g75hx" path="res://Themes/darkTheme.tres" id="5_geh4q"]
+[ext_resource type="Texture2D" uid="uid://bls4kqvc8a3ca" path="res://UI/Close Button.png" id="6_7bay7"]
+
+[node name="Tutorial Screen" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_jufpp")
+
+[node name="InteractBlocker" type="ColorRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.25098)
+metadata/_edit_lock_ = true
+
+[node name="Background" type="ColorRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.129412, 0.133333, 0.141176, 1)
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="Background/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Title"
+label_settings = ExtResource("2_qt08f")
+horizontal_alignment = 1
+
+[node name="ImgSpacer" type="Container" parent="Background/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_ekbei")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Spacer2" type="Container" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Content" type="Label" parent="Background/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+text = "content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content content "
+label_settings = ExtResource("4_osali")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Spacer4" type="Container" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Button Spacer" type="Container" parent="Background/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CancelContainer" type="HBoxContainer" parent="Background/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="CancelButton" type="Button" parent="Background/VBoxContainer/CancelContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_geh4q")
+theme_override_font_sizes/font_size = 32
+icon = ExtResource("6_7bay7")
+flat = true
+expand_icon = true
+
+[connection signal="pressed" from="Background/VBoxContainer/CancelContainer/CancelButton" to="." method="_on_cancel_button_pressed"]

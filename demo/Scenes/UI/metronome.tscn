@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://2qqhkdnvfyx4"]
+
+[ext_resource type="Script" path="res://Scenes/UI/metronome.gd" id="1_hwniq"]
+[ext_resource type="AudioStream" uid="uid://o5j7d62c44s0" path="res://Sounds/High Pulse.wav" id="2_qdo1q"]
+[ext_resource type="AudioStream" uid="uid://cv6lfllkswt5b" path="res://Sounds/Low Pulse.wav" id="3_7g8x4"]
+
+[node name="Metronome" type="ColorRect"]
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.475
+anchor_right = 0.8
+anchor_bottom = 0.525
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_hwniq")
+
+[node name="Big Pulse Audio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_qdo1q")
+max_polyphony = 4
+
+[node name="Pulse Audio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_7g8x4")
+max_polyphony = 4

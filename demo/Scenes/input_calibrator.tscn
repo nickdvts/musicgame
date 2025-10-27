@@ -1,0 +1,158 @@
+[gd_scene load_steps=9 format=3 uid="uid://dcehltju1252b"]
+
+[ext_resource type="Script" path="res://Scenes/input_calibrator.gd" id="1_kwtrx"]
+[ext_resource type="PackedScene" uid="uid://csyqx5xcwfmc4" path="res://Scenes/UI/settings_h_slider.tscn" id="2_haf17"]
+[ext_resource type="Theme" uid="uid://dujaksx6g75hx" path="res://Themes/darkTheme.tres" id="3_htnei"]
+[ext_resource type="LabelSettings" uid="uid://ci281eviovoli" path="res://Themes/header1LabelSettings.tres" id="3_ofhbf"]
+[ext_resource type="PackedScene" uid="uid://2qqhkdnvfyx4" path="res://Scenes/UI/metronome.tscn" id="4_6ntgm"]
+[ext_resource type="StyleBox" uid="uid://bwu6kop5nwjvg" path="res://Themes/hardPanel.tres" id="5_m2v3h"]
+[ext_resource type="Texture2D" uid="uid://bls4kqvc8a3ca" path="res://UI/Close Button.png" id="5_pwojo"]
+[ext_resource type="Texture2D" uid="uid://b1yo5wo3k2cu7" path="res://UI/Save Button.png" id="8_trtby"]
+
+[node name="input_calibrator" type="CanvasLayer"]
+script = ExtResource("1_kwtrx")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.3
+offset_left = -794.5
+offset_right = 794.5
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_htnei")
+text = "Tap in time with the metronome to calibrate input."
+label_settings = ExtResource("3_ofhbf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Metronome" parent="." instance=ExtResource("4_6ntgm")]
+unique_name_in_owner = true
+
+[node name="Tap Button" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -71.0
+offset_top = -121.0
+offset_right = 71.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+alignment = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="CancelButton" type="Button" parent="VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_htnei")
+theme_override_font_sizes/font_size = 32
+icon = ExtResource("5_pwojo")
+flat = true
+expand_icon = true
+
+[node name="Spacer2" type="Container" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="ConfirmPopup" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="ConfirmPopup"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.0980392)
+
+[node name="CenterContainer2" type="CenterContainer" parent="ConfirmPopup"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="ConfirmPopup/CenterContainer2"]
+layout_mode = 2
+theme = ExtResource("3_htnei")
+theme_override_styles/panel = ExtResource("5_m2v3h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmPopup/CenterContainer2/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ConfirmPopup/CenterContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_htnei")
+text = "Confirm Calibration?
+"
+label_settings = ExtResource("3_ofhbf")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Spacer3" type="Container" parent="ConfirmPopup/CenterContainer2/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="InputSlider" parent="ConfirmPopup/CenterContainer2/PanelContainer/VBoxContainer" instance=ExtResource("2_haf17")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1440, 0)
+layout_mode = 2
+
+[node name="Spacer2" type="Container" parent="ConfirmPopup/CenterContainer2/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfirmPopup/CenterContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="ConfirmPopup/CenterContainer2/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SaveButton" type="Button" parent="ConfirmPopup/CenterContainer2/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_htnei")
+theme_override_font_sizes/font_size = 32
+icon = ExtResource("8_trtby")
+flat = true
+expand_icon = true
+
+[node name="CenterContainer" type="CenterContainer" parent="ConfirmPopup/CenterContainer2/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CancelConfirmButton" type="Button" parent="ConfirmPopup/CenterContainer2/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_htnei")
+theme_override_font_sizes/font_size = 32
+icon = ExtResource("5_pwojo")
+flat = true
+expand_icon = true
+
+[connection signal="pressed" from="Tap Button" to="." method="_on_tap_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="ConfirmPopup/CenterContainer2/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer2/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="ConfirmPopup/CenterContainer2/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/CancelConfirmButton" to="." method="_on_cancel_confirm_button_pressed"]

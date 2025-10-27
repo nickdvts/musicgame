@@ -1,0 +1,987 @@
+[gd_scene load_steps=19 format=3 uid="uid://d1vmryonq3dbh"]
+
+[ext_resource type="Script" path="res://Scenes/settings_screen.gd" id="1_0pirt"]
+[ext_resource type="Theme" uid="uid://dujaksx6g75hx" path="res://Themes/darkTheme.tres" id="1_274ys"]
+[ext_resource type="Theme" uid="uid://bp2dyvuxsal4d" path="res://Themes/majorTheme.tres" id="2_gj6ng"]
+[ext_resource type="PackedScene" uid="uid://csyqx5xcwfmc4" path="res://Scenes/UI/settings_h_slider.tscn" id="5_yl85o"]
+[ext_resource type="PackedScene" uid="uid://drejvijegrrnc" path="res://Scenes/UI/settings_h_check.tscn" id="6_5hacc"]
+[ext_resource type="LabelSettings" uid="uid://ci281eviovoli" path="res://Themes/header1LabelSettings.tres" id="6_5wyyo"]
+[ext_resource type="Texture2D" uid="uid://db8arrrccy6we" path="res://UI/Info Button.png" id="7_fxjtm"]
+[ext_resource type="PackedScene" uid="uid://2ru2aslgxirx" path="res://Scenes/UI/settings_dictionary_list.tscn" id="8_rqsjr"]
+[ext_resource type="StyleBox" uid="uid://d1frv3v8c8pwn" path="res://Themes/importantButtonNormal.tres" id="9_xa437"]
+[ext_resource type="StyleBox" uid="uid://b5cct2erbx8k7" path="res://Themes/importantButtonHighlight.tres" id="10_dvfbt"]
+[ext_resource type="StyleBox" uid="uid://cawgc0pahf152" path="res://Themes/darkMenuBox.tres" id="10_hfh1f"]
+[ext_resource type="PackedScene" uid="uid://dpbklamiahqkx" path="res://Scenes/UI/preset_manager.tscn" id="11_1si3x"]
+[ext_resource type="StyleBox" uid="uid://ck2ig8vsh2p3u" path="res://Themes/blank.tres" id="11_25lj6"]
+[ext_resource type="StyleBox" uid="uid://bijitr32ov67y" path="res://Themes/darkMenuBoxHighlight.tres" id="11_0728f"]
+[ext_resource type="Script" path="res://Scenes/ScrollHandler.gd" id="15_af3r3"]
+[ext_resource type="PackedScene" uid="uid://cb4sduftupeil" path="res://Scenes/UI/tutorial_screen.tscn" id="15_lswtj"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_bk8hg"]
+resource_local_to_scene = false
+resource_name = "General"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_1rhek"]
+resource_name = "Generation"
+
+[node name="Settings Screen" type="CanvasLayer"]
+script = ExtResource("1_0pirt")
+
+[node name="TabsContainer" type="HBoxContainer" parent="."]
+anchors_preset = -1
+anchor_right = 0.2
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GeneralTabs" type="VBoxContainer" parent="TabsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Spacer" type="Container" parent="TabsContainer/GeneralTabs"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="General Title" type="Label" parent="TabsContainer/GeneralTabs"]
+layout_mode = 2
+text = "Settings"
+label_settings = ExtResource("6_5wyyo")
+horizontal_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="SesOpen" type="Button" parent="TabsContainer/GeneralTabs"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("2_gj6ng")
+theme_override_font_sizes/font_size = 42
+toggle_mode = true
+button_pressed = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_bk8hg")
+text = "General"
+
+[node name="GenOpen" type="Button" parent="TabsContainer/GeneralTabs"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("2_gj6ng")
+theme_override_font_sizes/font_size = 42
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_bk8hg")
+text = "Generation"
+
+[node name="CalOpen" type="Button" parent="TabsContainer/GeneralTabs"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("2_gj6ng")
+theme_override_font_sizes/font_size = 42
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_bk8hg")
+text = "Calibration"
+
+[node name="GraOpen" type="Button" parent="TabsContainer/GeneralTabs"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("2_gj6ng")
+theme_override_font_sizes/font_size = 42
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_bk8hg")
+text = "Graphics
+"
+
+[node name="InfOpen" type="Button" parent="TabsContainer/GeneralTabs"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("2_gj6ng")
+theme_override_font_sizes/font_size = 42
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_bk8hg")
+text = "Tutorials"
+
+[node name="GeneralSave" type="Button" parent="TabsContainer/GeneralTabs"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("2_gj6ng")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = ExtResource("9_xa437")
+theme_override_styles/hover = ExtResource("9_xa437")
+theme_override_styles/pressed = ExtResource("10_dvfbt")
+text = "Save"
+
+[node name="Spacer2" type="Container" parent="TabsContainer/GeneralTabs"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="GenerationTabs" type="VBoxContainer" parent="TabsContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Spacer" type="Container" parent="TabsContainer/GenerationTabs"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Gen Preset Title" type="Label" parent="TabsContainer/GenerationTabs"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Settings"
+label_settings = ExtResource("6_5wyyo")
+horizontal_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="ValOpen" type="Button" parent="TabsContainer/GenerationTabs"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("2_gj6ng")
+theme_override_font_sizes/font_size = 42
+toggle_mode = true
+button_pressed = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_1rhek")
+text = "Values"
+
+[node name="NotOpen" type="Button" parent="TabsContainer/GenerationTabs"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("2_gj6ng")
+theme_override_font_sizes/font_size = 42
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_1rhek")
+text = "Notes"
+
+[node name="TieOpen" type="Button" parent="TabsContainer/GenerationTabs"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("2_gj6ng")
+theme_override_font_sizes/font_size = 42
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_1rhek")
+text = "Ties
+"
+
+[node name="TriOpen" type="Button" parent="TabsContainer/GenerationTabs"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("2_gj6ng")
+theme_override_font_sizes/font_size = 42
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_1rhek")
+text = "Triplets
+"
+
+[node name="SynOpen" type="Button" parent="TabsContainer/GenerationTabs"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("2_gj6ng")
+theme_override_font_sizes/font_size = 42
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_1rhek")
+text = "Syncopation"
+
+[node name="TimOpen" type="Button" parent="TabsContainer/GenerationTabs"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("2_gj6ng")
+theme_override_font_sizes/font_size = 42
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_1rhek")
+text = "Time Signatures"
+
+[node name="GenerationSave" type="Button" parent="TabsContainer/GenerationTabs"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("2_gj6ng")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = ExtResource("9_xa437")
+theme_override_styles/hover = ExtResource("9_xa437")
+theme_override_styles/pressed = ExtResource("10_dvfbt")
+text = "Save"
+
+[node name="Spacer2" type="Container" parent="TabsContainer/GenerationTabs"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Divider" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.2
+anchor_right = 0.2
+anchor_bottom = 1.0
+
+[node name="Spacer" type="Container" parent="Divider"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Divider"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="Spacer2" type="Container" parent="Divider"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = -32.0
+grow_horizontal = 2
+size_flags_vertical = 0
+
+[node name="Spacer" type="Container" parent="MainContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="General Panel" type="VBoxContainer" parent="MainContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SesGroup" type="VBoxContainer" parent="MainContainer/General Panel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/General Panel/SesGroup"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/General Panel/SesGroup/Panel"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+alignment = 1
+
+[node name="Label" type="Label" parent="MainContainer/General Panel/SesGroup/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_274ys")
+text = "General Settings
+"
+label_settings = ExtResource("6_5wyyo")
+
+[node name="GeneralInfo" type="Button" parent="MainContainer/General Panel/SesGroup/Panel"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = ExtResource("1_274ys")
+icon = ExtResource("7_fxjtm")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="CountMeas" parent="MainContainer/General Panel/SesGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AutoCount" parent="MainContainer/General Panel/SesGroup" instance=ExtResource("6_5hacc")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AutoBPM" parent="MainContainer/General Panel/SesGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Spacer2" type="Container" parent="MainContainer/General Panel/SesGroup"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MainContainer/General Panel/SesGroup"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/General Panel/SesGroup/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="Metro" parent="MainContainer/General Panel/SesGroup/PanelContainer/VBoxContainer" instance=ExtResource("6_5hacc")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MetroVol" parent="MainContainer/General Panel/SesGroup/PanelContainer/VBoxContainer" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MetroShow" parent="MainContainer/General Panel/SesGroup/PanelContainer/VBoxContainer" instance=ExtResource("6_5hacc")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="GenGroup" type="VBoxContainer" parent="MainContainer/General Panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_274ys")
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/General Panel/GenGroup"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_274ys")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/General Panel/GenGroup/Panel"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+alignment = 1
+
+[node name="Label" type="Label" parent="MainContainer/General Panel/GenGroup/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_274ys")
+text = "Generation Settings
+"
+label_settings = ExtResource("6_5wyyo")
+
+[node name="GenerationInfo" type="Button" parent="MainContainer/General Panel/GenGroup/Panel"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = ExtResource("1_274ys")
+icon = ExtResource("7_fxjtm")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="SeqLength" parent="MainContainer/General Panel/GenGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Gen Preset Man" parent="MainContainer/General Panel/GenGroup" instance=ExtResource("11_1si3x")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CalGroup" type="VBoxContainer" parent="MainContainer/General Panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/General Panel/CalGroup"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/General Panel/CalGroup/Panel"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+alignment = 1
+
+[node name="Label" type="Label" parent="MainContainer/General Panel/CalGroup/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_274ys")
+text = "Calibration Settings"
+label_settings = ExtResource("6_5wyyo")
+
+[node name="CalibrationInfo" type="Button" parent="MainContainer/General Panel/CalGroup/Panel"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = ExtResource("1_274ys")
+icon = ExtResource("7_fxjtm")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="InCali" parent="MainContainer/General Panel/CalGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AuCali" parent="MainContainer/General Panel/CalGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/General Panel/CalGroup"]
+layout_mode = 2
+alignment = 1
+
+[node name="AuCButton" type="Button" parent="MainContainer/General Panel/CalGroup/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme = ExtResource("1_274ys")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("10_hfh1f")
+theme_override_styles/hover = ExtResource("10_hfh1f")
+theme_override_styles/pressed = ExtResource("11_0728f")
+theme_override_styles/disabled = ExtResource("11_25lj6")
+theme_override_styles/focus = ExtResource("11_25lj6")
+text = "Calibrate Audio"
+
+[node name="InCButton" type="Button" parent="MainContainer/General Panel/CalGroup/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme = ExtResource("1_274ys")
+theme_type_variation = &"PanelButton"
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("10_hfh1f")
+theme_override_styles/hover = ExtResource("10_hfh1f")
+theme_override_styles/pressed = ExtResource("11_0728f")
+theme_override_styles/disabled = ExtResource("11_25lj6")
+theme_override_styles/focus = ExtResource("11_25lj6")
+text = "Calibrate Input"
+
+[node name="Spacer" type="Container" parent="MainContainer/General Panel/CalGroup"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="PreWin" parent="MainContainer/General Panel/CalGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RelWin" parent="MainContainer/General Panel/CalGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="GraGroup" type="VBoxContainer" parent="MainContainer/General Panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/General Panel/GraGroup"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/General Panel/GraGroup/Panel"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+alignment = 1
+
+[node name="Label" type="Label" parent="MainContainer/General Panel/GraGroup/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_274ys")
+text = "Graphics Settings"
+label_settings = ExtResource("6_5wyyo")
+
+[node name="GraphicInfo" type="Button" parent="MainContainer/General Panel/GraGroup/Panel"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = ExtResource("1_274ys")
+icon = ExtResource("7_fxjtm")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Highlight" parent="MainContainer/General Panel/GraGroup" instance=ExtResource("6_5hacc")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Spacer3" type="Container" parent="MainContainer/General Panel/GraGroup"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="NoteScale" parent="MainContainer/General Panel/GraGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FeeScale" parent="MainContainer/General Panel/GraGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ButtScale" parent="MainContainer/General Panel/GraGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Spacer2" type="Container" parent="MainContainer/General Panel/GraGroup"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="TopMarg" parent="MainContainer/General Panel/GraGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SideMarg" parent="MainContainer/General Panel/GraGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LineMarg" parent="MainContainer/General Panel/GraGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ButtMarg" parent="MainContainer/General Panel/GraGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InfGroup" type="VBoxContainer" parent="MainContainer/General Panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/General Panel/InfGroup"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_274ys")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/General Panel/InfGroup/Panel"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+alignment = 1
+
+[node name="Label" type="Label" parent="MainContainer/General Panel/InfGroup/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_274ys")
+text = "Tutorials
+"
+label_settings = ExtResource("6_5wyyo")
+
+[node name="TutorialInfo" type="Button" parent="MainContainer/General Panel/InfGroup/Panel"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = ExtResource("1_274ys")
+icon = ExtResource("7_fxjtm")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="tapTut" parent="MainContainer/General Panel/InfGroup" instance=ExtResource("6_5hacc")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Spacer2" type="Container" parent="MainContainer/General Panel/InfGroup"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="welTut" parent="MainContainer/General Panel/InfGroup" instance=ExtResource("6_5hacc")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="welButton" type="Button" parent="MainContainer/General Panel/InfGroup"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme = ExtResource("1_274ys")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("10_hfh1f")
+theme_override_styles/hover = ExtResource("10_hfh1f")
+theme_override_styles/pressed = ExtResource("11_0728f")
+theme_override_styles/disabled = ExtResource("11_25lj6")
+theme_override_styles/focus = ExtResource("11_25lj6")
+text = "Welcome Tutorial"
+
+[node name="Spacer3" type="Container" parent="MainContainer/General Panel/InfGroup"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="manTut" parent="MainContainer/General Panel/InfGroup" instance=ExtResource("6_5hacc")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="manButton" type="Button" parent="MainContainer/General Panel/InfGroup"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme = ExtResource("1_274ys")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("10_hfh1f")
+theme_override_styles/hover = ExtResource("10_hfh1f")
+theme_override_styles/pressed = ExtResource("11_0728f")
+theme_override_styles/disabled = ExtResource("11_25lj6")
+theme_override_styles/focus = ExtResource("11_25lj6")
+text = "Manual Count In Tutorial"
+
+[node name="Spacer4" type="Container" parent="MainContainer/General Panel/InfGroup"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="feeTut" parent="MainContainer/General Panel/InfGroup" instance=ExtResource("6_5hacc")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="feeButton" type="Button" parent="MainContainer/General Panel/InfGroup"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme = ExtResource("1_274ys")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("10_hfh1f")
+theme_override_styles/hover = ExtResource("10_hfh1f")
+theme_override_styles/pressed = ExtResource("11_0728f")
+theme_override_styles/disabled = ExtResource("11_25lj6")
+theme_override_styles/focus = ExtResource("11_25lj6")
+text = "Feedback Tutorial"
+
+[node name="Generation Panel" type="VBoxContainer" parent="MainContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="ValGroup" type="VBoxContainer" parent="MainContainer/Generation Panel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/Generation Panel/ValGroup"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/Generation Panel/ValGroup/Panel"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+alignment = 1
+
+[node name="Label" type="Label" parent="MainContainer/Generation Panel/ValGroup/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_274ys")
+text = "Value Probabilities"
+label_settings = ExtResource("6_5wyyo")
+
+[node name="ValueInfo" type="Button" parent="MainContainer/Generation Panel/ValGroup/Panel"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = ExtResource("1_274ys")
+icon = ExtResource("7_fxjtm")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="WholeDiv" parent="MainContainer/Generation Panel/ValGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HalfDiv" parent="MainContainer/Generation Panel/ValGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="QuarterDiv" parent="MainContainer/Generation Panel/ValGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EighthDiv" parent="MainContainer/Generation Panel/ValGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SixteenthDiv" parent="MainContainer/Generation Panel/ValGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="NotGroup" type="VBoxContainer" parent="MainContainer/Generation Panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/Generation Panel/NotGroup"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/Generation Panel/NotGroup/Panel"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+alignment = 1
+
+[node name="Label" type="Label" parent="MainContainer/Generation Panel/NotGroup/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_274ys")
+text = "Note Probabilities
+"
+label_settings = ExtResource("6_5wyyo")
+
+[node name="NoteInfo" type="Button" parent="MainContainer/Generation Panel/NotGroup/Panel"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = ExtResource("1_274ys")
+icon = ExtResource("7_fxjtm")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="WholeNote" parent="MainContainer/Generation Panel/NotGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HalfNote" parent="MainContainer/Generation Panel/NotGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="QuarterNote" parent="MainContainer/Generation Panel/NotGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EighthNote" parent="MainContainer/Generation Panel/NotGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SixteenthNote" parent="MainContainer/Generation Panel/NotGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TieGroup" type="VBoxContainer" parent="MainContainer/Generation Panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/Generation Panel/TieGroup"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/Generation Panel/TieGroup/Panel"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+alignment = 1
+
+[node name="Label" type="Label" parent="MainContainer/Generation Panel/TieGroup/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_274ys")
+text = "Tie Probabilities
+"
+label_settings = ExtResource("6_5wyyo")
+
+[node name="TieInfo" type="Button" parent="MainContainer/Generation Panel/TieGroup/Panel"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = ExtResource("1_274ys")
+icon = ExtResource("7_fxjtm")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="MeasTie" parent="MainContainer/Generation Panel/TieGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="WholeTie" parent="MainContainer/Generation Panel/TieGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HalfTie" parent="MainContainer/Generation Panel/TieGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="QuarterTie" parent="MainContainer/Generation Panel/TieGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EighthTie" parent="MainContainer/Generation Panel/TieGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SixteenthTie" parent="MainContainer/Generation Panel/TieGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TriGroup" type="VBoxContainer" parent="MainContainer/Generation Panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/Generation Panel/TriGroup"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/Generation Panel/TriGroup/Panel"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+alignment = 1
+
+[node name="Label" type="Label" parent="MainContainer/Generation Panel/TriGroup/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_274ys")
+text = "Triplet Probabilities
+"
+label_settings = ExtResource("6_5wyyo")
+
+[node name="TripletInfo" type="Button" parent="MainContainer/Generation Panel/TriGroup/Panel"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = ExtResource("1_274ys")
+icon = ExtResource("7_fxjtm")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="WholeTrip" parent="MainContainer/Generation Panel/TriGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HalfTrip" parent="MainContainer/Generation Panel/TriGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="QuarterTrip" parent="MainContainer/Generation Panel/TriGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EighthTrip" parent="MainContainer/Generation Panel/TriGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SixteenthTrip" parent="MainContainer/Generation Panel/TriGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SynGroup" type="VBoxContainer" parent="MainContainer/Generation Panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/Generation Panel/SynGroup"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/Generation Panel/SynGroup/Panel"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+alignment = 1
+
+[node name="Label" type="Label" parent="MainContainer/Generation Panel/SynGroup/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_274ys")
+text = "Syncopation Probabilities
+"
+label_settings = ExtResource("6_5wyyo")
+
+[node name="SyncopationInfo" type="Button" parent="MainContainer/Generation Panel/SynGroup/Panel"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = ExtResource("1_274ys")
+icon = ExtResource("7_fxjtm")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="WholeSynco" parent="MainContainer/Generation Panel/SynGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HalfSynco" parent="MainContainer/Generation Panel/SynGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="QuarterSynco" parent="MainContainer/Generation Panel/SynGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EighthSynco" parent="MainContainer/Generation Panel/SynGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SixteenthSynco" parent="MainContainer/Generation Panel/SynGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TimGroup" type="VBoxContainer" parent="MainContainer/Generation Panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/Generation Panel/TimGroup"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/Generation Panel/TimGroup/Panel"]
+layout_mode = 2
+theme = ExtResource("1_274ys")
+alignment = 1
+
+[node name="Label" type="Label" parent="MainContainer/Generation Panel/TimGroup/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_274ys")
+text = "Time Signatures
+"
+label_settings = ExtResource("6_5wyyo")
+
+[node name="TimeInfo" type="Button" parent="MainContainer/Generation Panel/TimGroup/Panel"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = ExtResource("1_274ys")
+icon = ExtResource("7_fxjtm")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="SigChange" parent="MainContainer/Generation Panel/TimGroup" instance=ExtResource("5_yl85o")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SigManager" parent="MainContainer/Generation Panel/TimGroup" instance=ExtResource("8_rqsjr")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Spacer2" type="Container" parent="MainContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="ScrollHandler" type="Node" parent="MainContainer"]
+unique_name_in_owner = true
+script = ExtResource("15_af3r3")
+
+[node name="Tutorial Screen" parent="." instance=ExtResource("15_lswtj")]
+unique_name_in_owner = true
+
+[connection signal="presetMenuClosed" from="." to="." method="_on_preset_menu_closed"]
+[connection signal="pressed" from="TabsContainer/GeneralTabs/SesOpen" to="." method="_on_ses_open_pressed"]
+[connection signal="pressed" from="TabsContainer/GeneralTabs/GenOpen" to="." method="_on_gen_open_pressed"]
+[connection signal="pressed" from="TabsContainer/GeneralTabs/CalOpen" to="." method="_on_cal_open_pressed"]
+[connection signal="pressed" from="TabsContainer/GeneralTabs/GraOpen" to="." method="_on_gra_open_pressed"]
+[connection signal="pressed" from="TabsContainer/GeneralTabs/InfOpen" to="." method="_on_inf_open_pressed"]
+[connection signal="pressed" from="TabsContainer/GeneralTabs/GeneralSave" to="." method="_on_general_save_pressed"]
+[connection signal="pressed" from="TabsContainer/GenerationTabs/ValOpen" to="." method="_on_val_open_pressed"]
+[connection signal="pressed" from="TabsContainer/GenerationTabs/NotOpen" to="." method="_on_not_open_pressed"]
+[connection signal="pressed" from="TabsContainer/GenerationTabs/TieOpen" to="." method="_on_tie_open_pressed"]
+[connection signal="pressed" from="TabsContainer/GenerationTabs/TriOpen" to="." method="_on_tri_open_pressed"]
+[connection signal="pressed" from="TabsContainer/GenerationTabs/SynOpen" to="." method="_on_syn_open_pressed"]
+[connection signal="pressed" from="TabsContainer/GenerationTabs/TimOpen" to="." method="_on_tim_open_pressed"]
+[connection signal="pressed" from="TabsContainer/GenerationTabs/GenerationSave" to="." method="_on_generation_save_pressed"]
+[connection signal="pressed" from="MainContainer/General Panel/SesGroup/Panel/GeneralInfo" to="." method="_on_general_info_pressed"]
+[connection signal="pressed" from="MainContainer/General Panel/GenGroup/Panel/GenerationInfo" to="." method="_on_generation_info_pressed"]
+[connection signal="pressed" from="MainContainer/General Panel/CalGroup/Panel/CalibrationInfo" to="." method="_on_calibration_info_pressed"]
+[connection signal="pressed" from="MainContainer/General Panel/CalGroup/HBoxContainer/AuCButton" to="." method="_on_au_c_button_pressed"]
+[connection signal="pressed" from="MainContainer/General Panel/CalGroup/HBoxContainer/InCButton" to="." method="_on_in_c_button_pressed"]
+[connection signal="pressed" from="MainContainer/General Panel/GraGroup/Panel/GraphicInfo" to="." method="_on_graphic_info_pressed"]
+[connection signal="pressed" from="MainContainer/General Panel/InfGroup/Panel/TutorialInfo" to="." method="_on_tutorial_info_pressed"]
+[connection signal="pressed" from="MainContainer/General Panel/InfGroup/welButton" to="." method="_on_wel_button_pressed"]
+[connection signal="pressed" from="MainContainer/General Panel/InfGroup/manButton" to="." method="_on_man_button_pressed"]
+[connection signal="pressed" from="MainContainer/General Panel/InfGroup/feeButton" to="." method="_on_fee_button_pressed"]
+[connection signal="pressed" from="MainContainer/Generation Panel/ValGroup/Panel/ValueInfo" to="." method="_on_value_info_pressed"]
+[connection signal="pressed" from="MainContainer/Generation Panel/NotGroup/Panel/NoteInfo" to="." method="_on_note_info_pressed"]
+[connection signal="pressed" from="MainContainer/Generation Panel/TieGroup/Panel/TieInfo" to="." method="_on_tie_info_pressed"]
+[connection signal="pressed" from="MainContainer/Generation Panel/TriGroup/Panel/TripletInfo" to="." method="_on_triplet_info_pressed"]
+[connection signal="pressed" from="MainContainer/Generation Panel/SynGroup/Panel/SyncopationInfo" to="." method="_on_syncopation_info_pressed"]
+[connection signal="pressed" from="MainContainer/Generation Panel/TimGroup/Panel/TimeInfo" to="." method="_on_time_info_pressed"]
