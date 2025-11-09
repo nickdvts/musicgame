@@ -1,0 +1,24 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1704067200
+Beat Master Home Icon.png::CompressedTexture2D::5481234567890123456::1704067100::1704067200::1::::<><>::
+Small Icon.png::CompressedTexture2D::1234567890123456789::1704067100::1704067200::1::::<><>::
+countInGo.png::CompressedTexture2D::6422570602451106456::1704067100::1704067200::1::::<><>::
+project.godot::PackedScene::-1::1704067200::0::1::::<><>::
+::res://Scenes/::1704067200
+main_menu.tscn::PackedScene::2345678901234567890::1704067150::1704067200::1::::<><>::
+session_screen.tscn::PackedScene::3456789012345678901::1704067150::1704067200::1::::<><>::
+settings_screen.tscn::PackedScene::4567890123456789012::1704067150::1704067200::1::::<><>::
+audio_calibrator.tscn::PackedScene::5678901234567890123::1704067150::1704067200::1::::<><>::
+input_calibrator.tscn::PackedScene::6789012345678901234::1704067150::1704067200::1::::<><>::
+::res://Scenes/UI/::1704067200
+session_ui.tscn::PackedScene::1412766832158591225::1704067150::1704067200::1::::<><>::
+settings_h_slider.tscn::PackedScene::6086799775463782297::1704067150::1704067200::1::::<><>::
+metronome.tscn::PackedScene::1929113325220291811::1704067150::1704067200::1::::<><>::
+tutorial_screen.tscn::PackedScene::4903996488225098243::1704067150::1704067200::1::::<><>::
+::res://Scripts/::1704067200
+util.gd::GDScript::3824479918767553330::1704067150::0::1::::<><>::
+saveData.gd::GDScript::387633123037738180::1704067150::0::1::::<><>::
+::res://UI/::1704067200
+countInGo.png::CompressedTexture2D::6422570602451106456::1704067100::1704067200::1::::<><>::
+Small Icon.png::CompressedTexture2D::1234567890123456789::1704067100::1704067200::1::::<><>::
+Beat Master Home Icon.png::CompressedTexture2D::5481234567890123456::1704067100::1704067200::1::::<><>::
